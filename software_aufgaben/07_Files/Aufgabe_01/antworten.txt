@@ -1,0 +1,26 @@
+1.1
+db.fs.files.find()
+[
+  {
+    _id: ObjectId('66507d883bd748145bdcc992'),
+    filename: 'baum.jpeg',
+    chunkSize: 261120,
+    length: Long('290267'),
+    uploadDate: ISODate('2024-05-24T11:44:08.392Z')
+  }
+]
+
+db.fs.chunks.find()
+[
+  {
+    _id: ObjectId('66507d883bd748145bdcc993'),
+    files_id: ObjectId('66507d883bd748145bdcc992'),
+    n: 0,
+    data: Binary.createFromBase64('/9j/4AAQSkZJRgABAQEBLAEsAAD/4SkwRXhpZgAASUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAA ...
+
+1.2
+Die erstellten Collections in der Datenbank sind fs.files und fs.chunks. Die Verbindung der einzelnen Documents zueinander wird durch den _id Schlüssel hergestellt.
+In der fs.chunks Collection werden die Chunks des Files gespeichert und durch den files_id Schlüssel mit dem entsprechenden Document in der fs.files Collection verknüpft.
+
+1.3
+Die Rohdaten des Files werden in binärer Form gespeichert (Base64-Format)
